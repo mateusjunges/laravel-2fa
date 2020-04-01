@@ -25,6 +25,8 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
     {
         $this->loadRoutes();
         $this->publishesConfig();
+        $this->loadViews();
+        $this->publishesAssets();
     }
 
     /**
@@ -43,6 +45,24 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ ."/../../config/laravel-2fa.php" => config_path('laravel-2fa.php'),
         ], 'laravel-2fa-config');
+    }
+
+    /**
+     * Publishes package assets.
+     */
+    public function publishesAssets()
+    {
+        $this->publishes([
+            __DIR__ . "/../../public" => public_path("vendor/junges/laravel-2fa")
+        ], 'laravel-2fa-assets');
+    }
+
+    /**
+     * Load package views.
+     */
+    public function loadViews()
+    {
+        $this->loadViewsFrom(__DIR__ . "/../../resources/views", 'laravel2fa');
     }
 }
 

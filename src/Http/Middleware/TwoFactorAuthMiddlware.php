@@ -26,8 +26,8 @@ class TwoFactorAuthMiddlware
                     ->route('login')
                     ->withMessage('Your two factor code has been expired. Please, login again.');
             }
-            if ($request->is('verify*')) {
-                return redirect()->route('verify.two_factor_code');
+            if ($request->is('two_factor_code*')) {
+                return redirect()->route('two_factor_code.verify');
             }
         }
         return $next($request);

@@ -1,0 +1,39 @@
+{
+  "name": "laravel2fa",
+  "version": "1.0.0",
+  "description": "A simple two factor authentication for laravel applications.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "npm run development",
+    "watch": "npm run development -- --watch",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusjunges/laravel-2fa.git"
+  },
+  "dependencies": {
+    "cross-env": "^5.1",
+    "laravel-mix": "^4.0.14",
+    "laravel-mix-purgecss": "^4.1",
+    "laravel-mix-tailwind": "^0.1.0",
+    "tailwindcss": "^1.2.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mateusjunges/laravel-2fa/issues"
+  },
+  "homepage": "https://github.com/mateusjunges/laravel-2fa#readme",
+  "devDependencies": {
+    "sass": "^1.26.3",
+    "sass-loader": "^7.3.1",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
