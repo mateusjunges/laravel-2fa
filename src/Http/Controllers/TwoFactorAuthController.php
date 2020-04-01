@@ -2,26 +2,42 @@
 
 namespace Junges\TwoFactorAuth\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Junges\TwoFactorAuth\Http\Requests\TwoFactorAuthRequest;
 use Junges\TwoFactorAuth\Notifications\TwoFactorCode;
 
-class TwoFactorAuthController
+class TwoFactorAuthController extends Controller
 {
+    /**
+     * Returns the two factor code verification view.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function index()
     {
-        return view('laravel2fa::verify-two-factor-auth');
+        if (auth()->check() && !empty(auth()->user()->two_factor_code)) {
+            return view('laravel2fa::verify-two-factor-auth');
+        }
+
+        return redirect()->back();
     }
 
+    /**
+     * Verify the two factor code.
+     * @param TwoFactorAuthRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(TwoFactorAuthRequest $request)
     {
-        $user = Auth::user();
+        /** @var User $user */
+        $user = auth()->user();
 
         if ($request->input('two_factor_code') === $user->two_factor_code) {
 
             $user->resetTwoFactorCode();
 
-            $redirectTo = config('laravel-2fa.redirect_to_route');
+            $redirectTo = config('laravel-2fa.redirect_to_route', 'home');
 
             return redirect()->route($redirectTo);
         }
@@ -32,10 +48,15 @@ class TwoFactorAuthController
             ]);
     }
 
+    /**
+     * Resend a user two factor code.
+     */
     public function resend()
     {
         $user = Auth::user();
         $user->generateTwoFactorCode();
         $user->notify(new TwoFactorCode());
+
+        return redirect()->back()->withMessage('Your two factor code have been resent. Check your email.');
     }
 }
