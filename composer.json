@@ -1,0 +1,13 @@
+{
+    "name": "mateusjunges/laravel-2fa",
+    "description": "A simple two factor authentication for laravel applications",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mateus Junges",
+            "email": "mateus@junges.dev"
+        }
+    ],
+    "require": {}
+}
