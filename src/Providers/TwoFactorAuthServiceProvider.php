@@ -27,6 +27,7 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
         $this->publishesConfig();
         $this->loadViews();
         $this->publishesAssets();
+        $this->loadMigrations();
     }
 
     /**
@@ -63,6 +64,11 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
     public function loadViews()
     {
         $this->loadViewsFrom(__DIR__ . "/../../resources/views", 'laravel2fa');
+    }
+
+    public function loadMigrations()
+    {
+        $this->loadMigrationsFrom(__DIR__ . "/../../database/migrations");
     }
 }
 
