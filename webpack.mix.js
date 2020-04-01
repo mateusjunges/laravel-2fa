@@ -15,7 +15,7 @@ mix.sass('resources/sass/app.scss', 'public/css/tailwind/tailwind.css')
     });
 
 
-/* while developing make sure public/vendor/ssh-agent is fresh */
+/* while developing make sure public/vendor/junges/laravel-2fa is fresh */
 mix.copy('public/css/app.css', '../../public/vendor/junges/laravel-2fa/css/app.css');
 mix.copy('public/js/app.js', '../../public/vendor/junges/laravel-2fa/js/app.js');
 mix.copy('public/css/tailwind/tailwind.css', '../../public/vendor/junges/laravel-2fa/css/tailwind/tailwind.css');

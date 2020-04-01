@@ -14,6 +14,7 @@ A simple two factor authentication for laravel applications.
 
 ## Installation
 
+### Require this package via composer
 To get started with Laravel 2FA, use Composer to add the package to your project's dependencies:
 
 ```bash
@@ -29,6 +30,7 @@ Or add this line in your composer.json, inside of the require section:
 ```
 then run `composer install`.
 
+### Update database with php artisan migrate
 After installing the package, you must run `php artisan migrate` to add the two factor authentication fields
 to your `users` table.
 
@@ -41,6 +43,7 @@ It will add the following columns to your database table:
 |-----------------------|
 ```
 
+### Replace AuthenticatesUsers trait on LoginController
 After that, open your `app\Http\Controllers\Auth\LoginController` file and replace the
 `AuthenticatesUsers` trait with the `AuthenticateUsersWithTwoFactor`, provided by this package.
 
@@ -65,4 +68,72 @@ trait AuthenticateUsersWithTwoFactor
 }
 ```
 
+### Publish package config
+
+To publish the package configuration, you can use the following command:
+
+```shell script
+php artisan vendor:publish --provider="Junges\TwoFactorAuth\TwoFactorAuthServiceProvider" --tag="laravel-2fa-config"
+```
+
+After published, this is how `config/laravel-2fa.php` will looks like:
+
+```php
+<?php
+
+return [
+    /*
+   |--------------------------------------------------------------------------
+   | Tables
+   |--------------------------------------------------------------------------
+   | Specify the basics authentication tables that you are using.
+   | Once you required this package, the following tables are
+   | created/modified by default when you run the command
+   |
+   | php artisan migrate
+   |
+    */
+    "tables" => [
+        "users" => "users",
+    ],
+   
+    /*
+   |--------------------------------------------------------------------------
+   | Two factor code length
+   |--------------------------------------------------------------------------
+   | Specify the length of your two factor code.
+   |
+    */
+    "code_length" => 8,
+
+     /*
+    |--------------------------------------------------------------------------
+    | Two factor code expiration time
+    |--------------------------------------------------------------------------
+    | Specify the duration of your two factor code in minutes.
+    |
+    */
+    "code_expires_in" => 10,
+
+     /*
+     |--------------------------------------------------------------------------
+     | Redirect to route
+     |--------------------------------------------------------------------------
+     | Specify the route which users should be redirected to after successfully confirming
+     | the two factor auth code.
+     |
+      */
+    "redirect_to_route" => "home"
+];
+```
+
+### Publish package assets
+This package uses a custom view to confirm the two factor code.
+You need to publish the package assets to that view with the following command:
+
+```shell script
+php artisan vendor:publish --provider="Junges\TwoFactorAuth\TwoFactorAuthServiceProvider" --tag="laravel-2fa-assets" 
+```
+
+## Usage
 
