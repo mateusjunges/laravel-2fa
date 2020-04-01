@@ -43,7 +43,7 @@ class TwoFactorCode extends Notification
         $expires_in = config('laravel-2fa.code_expires_in', 10);
         return (new MailMessage)
                     ->line("Your two factor authentication code is {$notifiable->two_factor_code}")
-                    ->action('Verify you code here:', route('verify.two_factor_code'))
+                    ->action('Verify you code here:', route('two_factor_code.verify'))
                     ->line("This code will expire in {$expires_in} minutes")
                     ->line("If you have not tried to login, ignore this message");
     }
