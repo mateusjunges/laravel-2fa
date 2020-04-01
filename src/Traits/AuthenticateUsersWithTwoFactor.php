@@ -4,12 +4,12 @@ namespace Junges\TwoFactorAuth\Traits;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Junges\TwoFactorAuth\Notifications\TwoFactorCode;
 
 /**
  * Trait HasTwoFactorAuthentication
  */
-trait HasTwoFactorAuthentication
+trait AuthenticateUsersWithTwoFactor
 {
     use AuthenticatesUsers;
 
@@ -19,7 +19,7 @@ trait HasTwoFactorAuthentication
      * @param $user
      */
     public function authenticated(Request $request, $user)
-    {   dd('ok');
+    {
         $user->generateTwoFactorCode();
         $user->notify(new TwoFactorCode());
     }
