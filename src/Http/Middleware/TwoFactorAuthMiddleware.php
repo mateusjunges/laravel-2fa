@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Junges\TwoFactorAuth\Http\Middleware;
 
+use App\User;
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
-class TwoFactorAuthMiddlware
+class TwoFactorAuthMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,19 +16,26 @@ class TwoFactorAuthMiddlware
      */
     public function handle($request, Closure $next)
     {
-        $user = Auth::user();
+        /** @var User $user */
+        $user = auth()->user();
 
-        if (Auth::check() and $user->two_factor_code) {
-            if ($user->two_factor_expires_at->lt(now())) {
+        if (auth()->check() && $user->two_factor_code) {
+
+            if ($user->getTwoFactorExpiration()->lt(now())) {
+
                 $user->resetTwoFactorCode();
-                Auth::logout();
+
+                auth()->logout();
+
                 return redirect()
                     ->route('login')
                     ->withMessage('Your two factor code has been expired. Please, login again.');
             }
-            if ($request->is('two_factor_code*')) {
+
+            if (! $request->is('two_factor_code*')) {
                 return redirect()->route('two_factor_code.verify');
             }
+
         }
         return $next($request);
     }
