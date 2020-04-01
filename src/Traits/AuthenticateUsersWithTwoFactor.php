@@ -14,7 +14,7 @@ trait AuthenticateUsersWithTwoFactor
     use AuthenticatesUsers;
 
     /**
-     * Handle successfully authenticated user.
+     * The user has been successfully authenticated.
      * @param Request $request
      * @param $user
      */
