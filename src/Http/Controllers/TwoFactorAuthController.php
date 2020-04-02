@@ -2,7 +2,6 @@
 
 namespace Junges\TwoFactorAuth\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Junges\TwoFactorAuth\Events\TwoFactorCodeConfirmed;
@@ -10,7 +9,7 @@ use Junges\TwoFactorAuth\Events\TwoFactorCodeResent;
 use Junges\TwoFactorAuth\Http\Requests\TwoFactorAuthRequest;
 use Junges\TwoFactorAuth\Notifications\TwoFactorCode;
 
-class TwoFactorAuthController extends Controller
+class TwoFactorAuthController
 {
     /**
      * Returns the two factor code verification view.
