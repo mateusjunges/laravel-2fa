@@ -12,6 +12,19 @@ A simple two factor authentication for laravel applications.
 </p>
 
 
+- [Installation](#installation)
+    - [Require via composer](#require-this-package-via-composer)
+    - [Update database](#update-database-with-php-artisan-migrate)
+    - [Replace authentication trait on LoginController](#replace-authenticatesusers-trait-on-logincontroller)
+    - [Publish package config](#publish-package-config)
+    - [Publish package assets](#publish-package-assets)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [License](#license)
+
+
+
 ## Installation
 
 ### Require this package via composer
@@ -181,4 +194,4 @@ The Laravel 2FA package is open-sourced software licenced under the [MIT License
 
 # Credits
 [Mateus Junges](https://github.com/mateusjunges)
-[Quick Panel Admin](https://quickadminpanel.com/)
+[Quick Admin Panel](https://quickadminpanel.com/)
