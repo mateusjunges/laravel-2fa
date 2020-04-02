@@ -74,7 +74,7 @@ class TestCase extends Orchestra
     public function createTestUser()
     {
         $this->user = User::create([
-            'name' => 'Mateus Junges',
+            'name'  => 'Mateus Junges',
             'email' => 'mateus@junges.dev',
         ]);
     }
