@@ -81,6 +81,25 @@ trait AuthenticateUsersWithTwoFactor
 }
 ```
 
+Then, just use the `HasTwoFactorAuthentication` trait in your `User` model:
+
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+    use HasTwoFactorAuthentication;
+    ...
+}
+```
+
 ### Publish package config
 
 To publish the package configuration, you can use the following command:
