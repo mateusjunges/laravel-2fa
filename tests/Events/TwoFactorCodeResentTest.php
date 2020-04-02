@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use Junges\TwoFactorAuth\Events\TwoFactorCodeResent;
 use Junges\TwoFactorAuth\Http\Controllers\TwoFactorAuthController;
 use Junges\TwoFactorAuth\Tests\TestCase;
-use Symfony\Component\HttpFoundation\Response;
 
 class TwoFactorCodeResentTest extends TestCase
 {
