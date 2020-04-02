@@ -12,6 +12,7 @@ class TwoFactorAuthController extends Controller
 {
     /**
      * Returns the two factor code verification view.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
     public function index()
@@ -25,7 +26,9 @@ class TwoFactorAuthController extends Controller
 
     /**
      * Verify the two factor code.
+     *
      * @param TwoFactorAuthRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(TwoFactorAuthRequest $request)
@@ -34,17 +37,17 @@ class TwoFactorAuthController extends Controller
         $user = auth()->user();
 
         if ($request->input('two_factor_code') === $user->two_factor_code) {
-
             $user->resetTwoFactorCode();
 
             $redirectTo = config('laravel-2fa.redirect_to_route', 'home');
 
             return redirect()->route($redirectTo);
         }
+
         return redirect()
             ->back()
             ->withErrors([
-                'two_factor_code' => 'The two factor code entered is invalid.'
+                'two_factor_code' => 'The two factor code entered is invalid.',
             ]);
     }
 

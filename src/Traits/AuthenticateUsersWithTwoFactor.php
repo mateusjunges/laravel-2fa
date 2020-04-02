@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Junges\TwoFactorAuth\Notifications\TwoFactorCode;
 
 /**
- * Trait HasTwoFactorAuthentication
+ * Trait HasTwoFactorAuthentication.
  */
 trait AuthenticateUsersWithTwoFactor
 {
@@ -15,6 +15,7 @@ trait AuthenticateUsersWithTwoFactor
 
     /**
      * The user has been successfully authenticated.
+     *
      * @param Request $request
      * @param $user
      */

@@ -13,9 +13,9 @@ class Laravel2faFields extends Migration
      */
     public function up()
     {
-        $users = config("laravel-2fa.tables.users", "users");
+        $users = config('laravel-2fa.tables.users', 'users');
 
-        Schema::table($users, function(Blueprint $table) {
+        Schema::table($users, function (Blueprint $table) {
             $table->string('two_factor_code')->nullable();
             $table->timestamp('two_factor_expires_at')->nullable();
         });
@@ -28,9 +28,9 @@ class Laravel2faFields extends Migration
      */
     public function down()
     {
-        $users = config("laravel-2fa.tables.users", "users");
+        $users = config('laravel-2fa.tables.users', 'users');
 
-        Schema::table($users, function(Blueprint $table) {
+        Schema::table($users, function (Blueprint $table) {
             $table->dropColumn('two_factor_code');
             $table->dropColumn('two_factor_expires_at');
         });
