@@ -35,7 +35,7 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
      */
     private function loadRoutes()
     {
-        $this->loadRoutesFrom(__DIR__ . "/../../routes/web.php");
+        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
     }
 
     /**
@@ -44,7 +44,7 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
     private function publishesConfig()
     {
         $this->publishes([
-            __DIR__ ."/../../config/laravel-2fa.php" => config_path('laravel-2fa.php'),
+            __DIR__.'/../../config/laravel-2fa.php' => config_path('laravel-2fa.php'),
         ], 'laravel-2fa-config');
     }
 
@@ -54,7 +54,7 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
     public function publishesAssets()
     {
         $this->publishes([
-            __DIR__ . "/../../public" => public_path("vendor/junges/laravel-2fa")
+            __DIR__.'/../../public' => public_path('vendor/junges/laravel-2fa'),
         ], 'laravel-2fa-assets');
     }
 
@@ -63,12 +63,11 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
      */
     public function loadViews()
     {
-        $this->loadViewsFrom(__DIR__ . "/../../resources/views", 'laravel2fa');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'laravel2fa');
     }
 
     public function loadMigrations()
     {
-        $this->loadMigrationsFrom(__DIR__ . "/../../database/migrations");
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
 }
-
