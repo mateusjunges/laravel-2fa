@@ -180,6 +180,23 @@ Route::middleware('two_factor_auth')->group(function() {
 });
 ```
 
+### Events
+
+This package dispatches events for two factor code confirmed and two factor code resent actions.
+
+You can listen to these events in your `EventServiceProvider`:
+
+```php
+protected $listen = [
+    \Junges\TwoFactorAuth\Events\TwoFactorCodeConfirmed::class => [
+        //Your listeners here
+    ],
+    \Junges\TwoFactorAuth\Events\TwoFactorCodeResent::class => [
+        // Your listeners here
+    ]
+];
+```
+
 With your routes protected, your users must confirm the two factor authentication code, which will be sent
 via email after they login with correct credentials.
 
