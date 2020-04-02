@@ -12,8 +12,8 @@ return [
    | php artisan migrate
    |
     */
-    "tables" => [
-        "users" => "users",
+    'tables' => [
+        'users' => 'users',
     ],
 
     /*
@@ -23,18 +23,18 @@ return [
    | Specify the length of your two factor code.
    |
     */
-    "code_length" => 8,
+    'code_length' => 8,
 
-     /*
+    /*
     |--------------------------------------------------------------------------
     | Two factor code expiration time
     |--------------------------------------------------------------------------
     | Specify the duration of your two factor code in minutes.
     |
     */
-    "code_expires_in" => 10,
+    'code_expires_in' => 10,
 
-     /*
+    /*
      |--------------------------------------------------------------------------
      | Redirect to route
      |--------------------------------------------------------------------------
@@ -42,5 +42,5 @@ return [
      | the two factor auth code.
      |
       */
-    "redirect_to_route" => "home"
+    'redirect_to_route' => 'home',
 ];

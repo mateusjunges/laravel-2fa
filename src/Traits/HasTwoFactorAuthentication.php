@@ -31,6 +31,7 @@ trait HasTwoFactorAuthentication
 
     /**
      * Returns the expiration date of the user two factor code.
+     *
      * @return Carbon
      */
     public function getTwoFactorExpiration()

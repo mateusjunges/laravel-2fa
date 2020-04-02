@@ -10,8 +10,9 @@ class TwoFactorAuthMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -20,9 +21,7 @@ class TwoFactorAuthMiddleware
         $user = auth()->user();
 
         if (auth()->check() && $user->two_factor_code) {
-
             if ($user->getTwoFactorExpiration()->lt(now())) {
-
                 $user->resetTwoFactorCode();
 
                 auth()->logout();
@@ -32,11 +31,11 @@ class TwoFactorAuthMiddleware
                     ->withMessage('Your two factor code has been expired. Please, login again.');
             }
 
-            if (! $request->is('two_factor_code*')) {
+            if (!$request->is('two_factor_code*')) {
                 return redirect()->route('two_factor_code.verify');
             }
-
         }
+
         return $next($request);
     }
 }
