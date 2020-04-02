@@ -23,11 +23,7 @@ class TwoFactorCodeResentTest extends TestCase
         $this->user->two_factor_code = $code;
         $this->user->save();
 
-        $controller = new TwoFactorAuthController();
-
-        $response = $controller->resend();
-
-        $this->assertEquals(Response::HTTP_FOUND, $response->getStatusCode());
+        (new TwoFactorAuthController())->resend();
 
         Event::assertDispatched(TwoFactorCodeResent::class, function ($event) {
             return $this->user->id === $event->user->id;
