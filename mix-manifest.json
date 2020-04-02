@@ -1,8 +1,4 @@
 {
-    "/public/js/app.js": "/public/js/app.js",
     "/public/css/tailwind/tailwind.css": "/public/css/tailwind/tailwind.css",
-    "/public/css/app.css": "/public/css/app.css",
-    "/home/mateus/Documents/projects/packages/package-development/public/vendor/junges/laravel-2fa/css/app.css": "/home/mateus/Documents/projects/packages/package-development/public/vendor/junges/laravel-2fa/css/app.css",
-    "/home/mateus/Documents/projects/packages/package-development/public/vendor/junges/laravel-2fa/js/app.js": "/home/mateus/Documents/projects/packages/package-development/public/vendor/junges/laravel-2fa/js/app.js",
     "/home/mateus/Documents/projects/packages/package-development/public/vendor/junges/laravel-2fa/css/tailwind/tailwind.css": "/home/mateus/Documents/projects/packages/package-development/public/vendor/junges/laravel-2fa/css/tailwind/tailwind.css"
 }
