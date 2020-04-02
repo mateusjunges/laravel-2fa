@@ -137,3 +137,48 @@ php artisan vendor:publish --provider="Junges\TwoFactorAuth\TwoFactorAuthService
 
 ## Usage
 
+To start using this package, you need to configure your email settings in `.env` file. This is an example config:
+
+```text
+MAIL_MAILER=your_mailer
+MAIL_HOST=your_mailer_host
+MAIL_PORT=2525
+MAIL_USERNAME=your_mail_username
+MAIL_PASSWORD=your_mail_password
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=your_mail@your_domain.com
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+
+Now, you need to register the `two_factor` middleware in your `app/Http/Kernel.php` file. Add it to the `routeMiddleware` array:
+```php
+protected $routeMiddleware = [
+    ...
+    'two_factor_auth' => TwoFactorAuthMiddleware::class
+];
+```
+
+After that, you just need to protect your routes with the `two_factor` middleware:
+
+```php
+Route::middleware('two_factor')->group(function() {
+    // Your routes here
+});
+```
+
+With your routes protected, your users must confirm the two factor authentication code, which will be sent
+via email after they login with correct credentials.
+
+# Contributing
+Thank you for considering contributing for the Laravel Invite Codes package! The contribution guide can be found [here](https://github.com/mateusjunges/laravel-2fa/blob/master/CONTRIBUTING.md).
+
+# Tests
+Run `composer test` to test this package.
+
+# License
+The Laravel 2FA package is open-sourced software licenced under the [MIT License](https://opensource.org/licenses/MIT). Please see [the License File](https://github.com/mateusjunges/laravel-2fa/blob/master/LICENSE) for more information.
+
+# Credits
+[Mateus Junges](https://github.com/mateusjunges)
+[Quick Panel Admin](https://quickadminpanel.com/)
