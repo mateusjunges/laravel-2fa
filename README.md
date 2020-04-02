@@ -189,9 +189,9 @@ Thank you for considering contributing for the Laravel Invite Codes package! The
 # Tests
 Run `composer test` to test this package.
 
+# Credits
+- [Mateus Junges](https://github.com/mateusjunges)
+- [Quick Admin Panel](https://quickadminpanel.com/)
+
 # License
 The Laravel 2FA package is open-sourced software licenced under the [MIT License](https://opensource.org/licenses/MIT). Please see [the License File](https://github.com/mateusjunges/laravel-2fa/blob/master/LICENSE) for more information.
-
-# Credits
-[Mateus Junges](https://github.com/mateusjunges)
-[Quick Admin Panel](https://quickadminpanel.com/)
