@@ -5,6 +5,8 @@ namespace Junges\TwoFactorAuth\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Junges\TwoFactorAuth\Events\TwoFactorCodeConfirmed;
+use Junges\TwoFactorAuth\Events\TwoFactorCodeResent;
 use Junges\TwoFactorAuth\Http\Requests\TwoFactorAuthRequest;
 use Junges\TwoFactorAuth\Notifications\TwoFactorCode;
 
@@ -39,6 +41,8 @@ class TwoFactorAuthController extends Controller
         if ($request->input('two_factor_code') === $user->two_factor_code) {
             $user->resetTwoFactorCode();
 
+            event(new TwoFactorCodeConfirmed($user));
+
             $redirectTo = config('laravel-2fa.redirect_to_route', 'home');
 
             return redirect()->route($redirectTo);
@@ -59,6 +63,8 @@ class TwoFactorAuthController extends Controller
         $user = Auth::user();
         $user->generateTwoFactorCode();
         $user->notify(new TwoFactorCode());
+
+        event(new TwoFactorCodeResent($user));
 
         return redirect()->back()->withMessage('Your two factor code have been resent. Check your email.');
     }
