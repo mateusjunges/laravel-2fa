@@ -175,7 +175,7 @@ protected $routeMiddleware = [
 After that, you just need to protect your routes with the `two_factor` middleware:
 
 ```php
-Route::middleware('two_factor')->group(function() {
+Route::middleware('two_factor_auth')->group(function() {
     // Your routes here
 });
 ```
