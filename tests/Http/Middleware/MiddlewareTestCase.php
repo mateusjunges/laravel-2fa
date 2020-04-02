@@ -18,18 +18,19 @@ class MiddlewareTestCase extends TestCase
     /**
      * Set up test.
      */
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
 
         $this->twoFactorMiddleware = new TwoFactorAuthMiddleware();
     }
 
-
     /**
      * Execute the specified middleware.
+     *
      * @param $middleware
      * @param $parameter
+     *
      * @return int
      */
     protected function execMiddleware($middleware, $parameter)

@@ -1,13 +1,13 @@
 <?php
 
 namespace Junges\TwoFactorAuth\Tests;
+
 use Junges\TwoFactorAuth\Providers\TwoFactorAuthServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
-
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -18,6 +18,7 @@ class TestCase extends Orchestra
 
     /**
      * @param \Illuminate\Foundation\Application $app
+     *
      * @return array
      */
     public function getPackageProviders($app)
@@ -46,7 +47,7 @@ class TestCase extends Orchestra
      */
     public function configureDatabase($app)
     {
-        include_once __DIR__ . "/../database/migrations/2020_04_01_134109_laravel_2fa_fields.php";
+        include_once __DIR__.'/../database/migrations/2020_04_01_134109_laravel_2fa_fields.php';
 
         (new \Laravel2faFields())->up();
     }
