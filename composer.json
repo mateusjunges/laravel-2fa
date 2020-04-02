@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Junges\\TwoFactorAuth": "src/"
+            "Junges\\TwoFactorAuth\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Junges\\TwoFactorAuth\\tests": "tests/"
+            "Junges\\TwoFactorAuth\\tests\\": "tests/"
         }
     },
     "scripts": {
