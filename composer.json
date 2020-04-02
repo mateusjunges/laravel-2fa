@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Junges\\TwoFactorAuth\\tests\\": "tests/"
+            "Junges\\TwoFactorAuth\\Tests\\": "tests/"
         }
     },
     "scripts": {
