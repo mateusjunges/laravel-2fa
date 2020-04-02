@@ -5,7 +5,7 @@ A simple two factor authentication for laravel applications.
     <a href="https://packagist.org/packages/mateusjunges/laravel-2fa" target="_blank"><img src="https://poser.pugx.org/mateusjunges/laravel-2fa/d/total.svg" alt="Total Downloads"></a>
     <a href="https://packagist.org/packages/mateusjunges/laravel-2fa" target="_blank"><img src="https://poser.pugx.org/mateusjunges/laravel-2fa/v/stable.svg" alt="Latest Stable Version"></a>
     <a href="https://packagist.org/packages/mateusjunges/laravel-2fa" target="_blank"><img src="https://poser.pugx.org/mateusjunges/laravel-2fa/license.svg" alt="License"></a>
-    <a href="https://github.styleci.io/repos/175907190" target="_blank"><img src="https://github.styleci.io/repos/175907190/shield?style=flat"></a>    
+    <a href="https://github.styleci.io/repos/252182910" target="_blank"><img src="https://github.styleci.io/repos/252182910/shield?style=flat"></a>    
     <a href="https://github.com/mateusjunges/laravel-2fa/actions?query=workflow%3A%22Continuous+Integration%22" target="_blank">
         <img src="https://github.com/mateusjunges/laravel-2fa/workflows/Continuous%20Integration/badge.svg">
     </a>
