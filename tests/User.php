@@ -7,8 +7,8 @@ use Illuminate\Notifications\Notifiable;
 use Junges\TwoFactorAuth\Traits\HasTwoFactorAuthentication;
 
 /**
- * Class User
- * @package Junges\TwoFactorAuth\Tests
+ * Class User.
+ *
  * @property string two_factor_code
  */
 class User extends Authenticatable

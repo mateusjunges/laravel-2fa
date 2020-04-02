@@ -37,8 +37,8 @@ class TwoFactorAuthMiddleware
                     return redirect()->route('two_factor_code.verify');
                 }
             }
-            return $next($request);
 
+            return $next($request);
         } else {
             return redirect()->route('login');
         }

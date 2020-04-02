@@ -28,7 +28,6 @@ class TwoFactorAuthMiddlewareTest extends MiddlewareTestCase
                 $this->twoFactorMiddleware
             )
         );
-
     }
 
     public function test_if_logged_in_user_without_two_factor_confirmed_can_not_access_protected_routes()
@@ -44,6 +43,5 @@ class TwoFactorAuthMiddlewareTest extends MiddlewareTestCase
                 $this->twoFactorMiddleware
             )
         );
-
     }
 }
