@@ -10,7 +10,7 @@
 </head>
 <body class="flex justify-center">
 <div class="flex justify-center align-middle">
-    <div class="rounded overflow-hidden shadow-lg mt-64">
+    <div class="rounded overflow-hidden shadow-lg mt-64 max-w-sm">
         <div class="px-6 py-4">
             <form action="{{ route('two_factor_code.verify.store') }}" method="POST">
                 @csrf
@@ -23,12 +23,17 @@
                 @endif
                 <label class="text-gray-700 text-base" for="two-factor-code">Type the code you have received via email</label>
                 <div class="flex justify-between align-middle align-items-center">
-                    <input type="text"
-                           placeholder="Type your 2FA code here"
-                           class="w-full border rounded-lg py-1
-                                        h-12
+                    <div class="w-full">
+                        <input type="text"
+                               placeholder="Type your 2FA code here"
+                               class="w-full border rounded-lg py-1
+                                        @error('two_factor_code') border-red-500 @enderror
                                         px-4 mt-2 outline-none focus:border-blue-500"
-                           name="two_factor_code">
+                               name="two_factor_code">
+                        @error('two_factor_code')
+                            <span class="text-red-500 text-sm">{{ $errors->first('two_factor_code') }}</span>
+                        @enderror
+                    </div>
                 </div>
                 <button class="bg-transparent hover:bg-blue-500 text-blue-700
                                     font-semibold hover:text-white mt-2 h-8 w-full
