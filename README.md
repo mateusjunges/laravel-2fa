@@ -1,3 +1,6 @@
+<p align="center">
+    <img src="laravel-2fa-readme.png">
+</p>
 # Laravel 2fa
 
 A simple two factor authentication for laravel applications.
