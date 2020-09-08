@@ -4,6 +4,7 @@ namespace Junges\TwoFactorAuth\Tests\Events;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 use Junges\TwoFactorAuth\Events\TwoFactorCodeResent;
 use Junges\TwoFactorAuth\Http\Controllers\TwoFactorAuthController;
@@ -14,6 +15,7 @@ class TwoFactorCodeResentTest extends TestCase
     public function test_resent_code_dispacth_code_resent_event()
     {
         Event::fake();
+        Notification::fake();
 
         Auth::login($this->user);
 
