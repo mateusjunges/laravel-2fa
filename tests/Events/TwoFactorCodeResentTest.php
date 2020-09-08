@@ -16,7 +16,7 @@ class TwoFactorCodeResentTest extends TestCase
     {
         Event::fake();
         Notification::fake();
-        
+
         Auth::login($this->user);
 
         $code = Str::upper(Str::random(8));
