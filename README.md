@@ -41,7 +41,7 @@ Or add this line in your composer.json, inside of the require section:
 ```bash
 {
     "require": {
-        "mateusjunges/laravel-2fa": "^1.0",
+        "mateusjunges/laravel-2fa": "^1.1",
     }
 }
 ```
